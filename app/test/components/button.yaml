@@ -1,0 +1,40 @@
+appId: com.myapp # the app id of the app we want to test
+# You can find the appId of an Ignite app in the `app.json` file
+# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+---
+# - clearState # clears the state of our app (navigation and authentication)
+# - launchApp # launches the app
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Presets"
+    index: 0
+- assertVisible: "Presets"
+
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Passing Content"
+    index: 2
+- assertVisible: "Passing Content"
+
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Styling"
+    index: 2
+- assertVisible: "Styling"
+
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Disabling"
+    index: 0
+- assertVisible: "Disabling"
+
+- runFlow:
+    when:
+      visible: "Disabling"
+    file: "./listItem.yaml"
+
+

@@ -1,0 +1,30 @@
+appId: com.myapp # the app id of the app we want to test
+# You can find the appId of an Ignite app in the `app.json` file
+# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+---
+- clearState # clears the state of our app (navigation and authentication)
+# - launchApp # launches the app
+- tapOn:
+    point: "7%,6%"
+
+- scroll
+
+- tapOn:
+    text: "Icons"
+- assertVisible: "List of icons registered inside the component."
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Size"
+- assertVisible: "There's a size prop."
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Color"
+- assertVisible: "There's a color prop."
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Styling"
+- assertVisible: "The component can be styled easily."
+

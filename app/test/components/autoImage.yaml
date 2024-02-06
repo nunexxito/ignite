@@ -1,0 +1,28 @@
+appId: com.myapp # the app id of the app we want to test
+# You can find the appId of an Ignite app in the `app.json` file
+# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+---
+- clearState # clears the state of our app (navigation and authentication)
+# - launchApp # launches the app
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Remote URI"
+- assertVisible: "Remote URI"
+
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Base64 URI"
+- assertVisible: "Base64 URI"
+
+- tapOn:
+    point: "7%,6%"
+- tapOn:
+    text: "Scaled to Fit Dimensions"
+- assertVisible: "Scaled to Fit Dimensions"
+
+- runFlow:
+    when:
+      visible: "Scaled to Fit Dimensions"
+    file: "./text.yaml"
