@@ -1,63 +1,64 @@
-appId: com.myapp # the app id of the app we want to test
-# You can find the appId of an Ignite app in the `app.json` file
-# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+appId: com.myapp # Define the app ID for the application being tested.
 ---
-- clearState # clears the state of our app (navigation and authentication)
-# - launchApp # launches the app
-- tapOn:
-    point: "7%,6%"
+- clearState # Clears the application state.
 
-- scroll
+- tapOn: # Taps a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top.
 
-- tapOn:
+- scroll # Performs a scroll action.
+- scroll # Performs another scroll action.
+
+- tapOn: # Taps an element with the text "Height".
     text: "Height"
-    index: 0
-- assertVisible: "Height"
+    index: 0 # If there are multiple elements with "Height", tap the first one.
+- assertVisible: "Height" # Verifies that "Height" is visible on the screen.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Separators".
     text: "Separators"
     index: 0
-- assertVisible: "Separators"
+- assertVisible: "Separators" # Verifies that "Separators" is visible.
 
-- tapOn:
+- tapOn: # Again, tapping the menu point.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps the second instance of an element with the text "Icons".
     text: "Icons"
     index: 1
-- assertVisible: "Icons"
+- assertVisible: "Icons" # Verifies that "Icons" is visible.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Custom Left/Right Components".
     text: "Custom Left/Right Components"
-    index: 0
-- assertVisible: "Custom Left/Right Components"
+- assertVisible: "Custom Left/Right Components" # Verifies visibility.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Passing Content".
     text: "Passing Content"
-    index: 1
-- assertVisible: "Passing Content"
+- assertVisible: "Passing Content" # Verifies visibility.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Integrating w/ FlatList & FlashList".
     text: "Integrating w/ FlatList & FlashList"
-    index: 0
-- assertVisible: "Integrating w/ FlatList & FlashList"
+- assertVisible: "Integrating w/ FlatList & FlashList" # Verifies visibility.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps the second instance of an element with the text "Styling".
     text: "Styling"
     index: 1
-- assertVisible: "Styling"
+- assertVisible: "Styling" # Verifies that "Styling" is visible.
 
-- runFlow:
-    when:
-      visible: "Styling"
-    file: "./card.yaml"
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
 
+- scrollUntilVisible: # Scrolls until a specified element is visible.
+    element:
+      text: "Icon"
+    direction: "UP" # The direction of the scroll.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "86%,46%" # Coordinates are 86% from the left and 46% from the top.

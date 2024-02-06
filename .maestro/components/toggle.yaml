@@ -32,10 +32,17 @@ appId: com.myapp # the app id of the app we want to test
     point: "7%,6%"
 - tapOn:
     text: "Styling"
-    index: 2
+    index: 1
 - assertVisible: "Styling"
 
-- runFlow:
-    when:
-      visible: "Styling"
-    file: "./button.yaml"
+- tapOn:
+    point: "7%,6%"
+
+- scrollUntilVisible:
+    element:
+      text: "Icon"
+      index: 0
+    direction: "UP"
+
+- tapOn:
+    point: "86%,46%"

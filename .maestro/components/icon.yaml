@@ -1,38 +1,35 @@
-appId: com.myapp # the app id of the app we want to test
-# You can find the appId of an Ignite app in the `app.json` file
-# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+appId: com.myapp # Defines the app ID for the application being tested.
 ---
-- clearState # clears the state of our app (navigation and authentication)
-# - launchApp # launches the app
-- tapOn:
-    point: "7%,6%"
-- tapOn:
-    text: "Icons"
-    index: 0
-- assertVisible: "Icons"
 
-- tapOn:
-    point: "7%,6%"
+- clearState # Clears the application state, which might include restarting the app or clearing session data.
+
+- tapOn: # Taps on a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top of the screen.
+
+- tapOn: # Taps on an element with specific text.
+    text: "Icons" # Text of the element to be tapped.
+    index: 0 # If multiple elements have the same text, tap the first one.
+
+- assertVisible: "Icons" # Verifies that the text "Icons" is visible on the screen.
+
+# The following blocks repeat similar actions for different UI elements ("Size", "Color", "Styling").
+- tapOn: 
+    point: "7%,6%" # Again, tapping the menu icon at the top.
 - tapOn:
     text: "Size"
     index: 0
 - assertVisible: "Size"
 
-- tapOn:
+- tapOn: 
     point: "7%,6%"
 - tapOn:
     text: "Color"
     index: 0
 - assertVisible: "Color"
 
-- tapOn:
+- tapOn: 
     point: "7%,6%"
 - tapOn:
     text: "Styling"
     index: 0
 - assertVisible: "Styling"
-
-- runFlow:
-    when:
-      visible: "Styling"
-    file: "./textField.yaml"

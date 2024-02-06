@@ -1,30 +1,51 @@
-appId: com.myapp # the app id of the app we want to test
-# You can find the appId of an Ignite app in the `app.json` file
-# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+appId: com.myapp # Defines the app ID for the application being tested.
 ---
-- clearState # clears the state of our app (navigation and authentication)
-# - launchApp # launches the app
-- tapOn:
-    point: "7%,6%"
+- clearState # Clears the application state.
 
-- scroll
+- tapOn: # Taps a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top.
 
-- tapOn:
-    text: "Icons"
-- assertVisible: "List of icons registered inside the component."
-- tapOn:
+- scroll # Performs a scroll action.
+- scroll # Performs another scroll action.
+- scroll # Performs yet another scroll action.
+- scroll # Performs a fourth scroll action.
+- scroll # Performs a fifth scroll action.
+
+- tapOn: # Taps an element with the text "Presets".
+    text: "Presets"
+- assertVisible: "Presets" # Verifies that "Presets" is visible on the screen.
+
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
-    text: "Size"
-- assertVisible: "There's a size prop."
-- tapOn:
+- tapOn: # Taps an element with the text "Sizes".
+    text: "Sizes"
+- assertVisible: "Sizes" # Verifies that "Sizes" is visible.
+
+- tapOn: # Again, tapping the menu point.
     point: "7%,6%"
-- tapOn:
-    text: "Color"
-- assertVisible: "There's a color prop."
-- tapOn:
+- tapOn: # Taps an element with the text "Weights".
+    text: "Weights"
+- assertVisible: "Weights" # Verifies that "Weights" is visible.
+
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Passing Content".
+    text: "Passing Content"
+- assertVisible: "Passing Content" # Verifies that "Passing Content" is visible.
+
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
+- tapOn: # Taps an element with the text "Styling".
     text: "Styling"
-- assertVisible: "The component can be styled easily."
+- assertVisible: "Styling" # Verifies that "Styling" is visible.
 
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
+
+- scrollUntilVisible: # Scrolls until a specified element is visible.
+    element:
+      text: "Icon"
+    direction: "UP" # The direction of the scroll.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "86%,46%" # Coordinates are 86% from the left and 46% from the top.

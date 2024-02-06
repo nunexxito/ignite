@@ -1,0 +1,41 @@
+appId: com.myapp # Defines the app ID for the application being tested.
+---
+- clearState # Clears the application state.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top.
+
+- scroll # Performs a scroll action.
+- scroll # Performs another scroll action.
+- scroll # Performs yet another scroll action.
+- scroll # Performs a fourth scroll action.
+- scroll # Performs a fifth scroll action.
+- scroll # Performs a sixth scroll action.
+
+- tapOn: # Taps an element with the text "Presets".
+    text: "Presets"
+- assertVisible: "Presets" # Verifies that "Presets" is visible on the screen.
+
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
+- tapOn: # Taps an element with the text "Passing Content".
+    text: "Passing Content"
+- assertVisible: "Passing Content" # Verifies that "Passing Content" is visible.
+
+- tapOn: # Again, tapping the menu point.
+    point: "7%,6%"
+- tapOn: # Taps the third instance of an element with the text "Styling".
+    text: "Styling"
+    index: 2
+- assertVisible: "Styling" # Verifies that "Styling" is visible.
+
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
+
+- scrollUntilVisible: # Scrolls until a specified element is visible.
+    element:
+      text: "Icon"
+    direction: "UP" # The direction of the scroll.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "86%,46%" # Coordinates are 86% from the left and 46% from the top.

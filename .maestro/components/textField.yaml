@@ -1,32 +1,23 @@
-appId: com.myapp # the app id of the app we want to test
-# You can find the appId of an Ignite app in the `app.json` file
-# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+appId: com.myapp 
 ---
-- clearState # clears the state of our app (navigation and authentication)
-# - launchApp # launches the app
-- tapOn:
-    point: "7%,6%"
-- tapOn:
-    text: "Statuses"
-    index: 0
-- assertVisible: "Statuses"
+- clearState 
 
-- tapOn:
+- tapOn: # Taps a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top.
+
+- tapOn: # Taps an element with the text "Statuses".
+    text: "Statuses"
+- assertVisible: "Statuses" # Verifies that "Statuses" is visible on the screen.
+
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Passing Content".
     text: "Passing Content"
-    index: 0
 - assertVisible: "Passing Content"
 
-- tapOn:
+- tapOn: # Again, tapping the menu point.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Styling", specifically the second instance.
     text: "Styling"
-    index: 1
-- assertVisible: "Styling"
-
-- runFlow:
-    when:
-      visible: "Styling"
-    file: "./toggle.yaml"
-
+    index: 1 # Specifies the second instance of "Styling".
+- assertVisible: "Styling" 

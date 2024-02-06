@@ -1,28 +1,38 @@
-appId: com.myapp # the app id of the app we want to test
-# You can find the appId of an Ignite app in the `app.json` file
-# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+appId: com.myapp # Defines the app ID for the application being tested.
 ---
-- clearState # clears the state of our app (navigation and authentication)
-# - launchApp # launches the app
-- tapOn:
-    point: "7%,6%"
-- tapOn:
+- clearState # Clears the state of the application.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top.
+
+- scroll # Performs a scroll action.
+- scroll # Performs another scroll action.
+- scroll # Performs yet another scroll action.
+- scroll # Performs a fourth scroll action.
+
+- tapOn: # Taps an element with the text "Remote URI".
     text: "Remote URI"
-- assertVisible: "Remote URI"
+- assertVisible: "Remote URI" # Verifies that "Remote URI" is visible on the screen.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Base64 URI".
     text: "Base64 URI"
-- assertVisible: "Base64 URI"
+- assertVisible: "Base64 URI" # Verifies that "Base64 URI" is visible.
 
-- tapOn:
+- tapOn: # Again, tapping the menu point.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Scaled to Fit Dimensions".
     text: "Scaled to Fit Dimensions"
-- assertVisible: "Scaled to Fit Dimensions"
+- assertVisible: "Scaled to Fit Dimensions" # Verifies that "Scaled to Fit Dimensions" is visible.
 
-- runFlow:
-    when:
-      visible: "Scaled to Fit Dimensions"
-    file: "./text.yaml"
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
+
+- scrollUntilVisible: # Scrolls until a specified element is visible.
+    element:
+      text: "Icon"
+    direction: "UP" # The direction of the scroll.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "86%,46%" # Coordinates are 86% from the left and 46% from the top.

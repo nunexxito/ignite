@@ -1,49 +1,52 @@
-appId: com.myapp # the app id of the app we want to test
-# You can find the appId of an Ignite app in the `app.json` file
-# as the "package" under the "android" section and "bundleIdentifier" under the "ios" section
+appId: com.myapp # Define the app ID for the application being tested.
 ---
-- clearState # clears the state of our app (navigation and authentication)
-# - launchApp # launches the app
-- tapOn:
-    point: "7%,6%"
+- clearState # Clears the application state.
 
-- scroll
+- tapOn: # Taps a specific point on the screen.
+    point: "7%,6%" # Coordinates are 7% from the left and 6% from the top.
 
-- tapOn:
+- scroll # Performs a scroll action.
+- scroll # Performs another scroll action.
+- scroll # Performs yet another scroll action.
+
+- tapOn: # Taps an element with the text "Presets".
     text: "Presets"
-    index: 0
-- assertVisible: "Presets"
+    index: 0 # If there are multiple elements with "Presets", tap the first one.
+- assertVisible: "Presets" # Verifies that "Presets" is visible on the screen.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Vertical Alignment".
     text: "Vertical Alignment"
-    index: 0
-- assertVisible: "Vertical Alignment"
+- assertVisible: "Vertical Alignment" # Verifies that "Vertical Alignment" is visible.
 
-- tapOn:
+- tapOn: # Again, tapping the menu point.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps the second instance of an element with the text "Passing Content".
     text: "Passing Content"
-    index: 0
-- assertVisible: "Passing Content"
+    index: 1
+- assertVisible: "Passing Content" # Verifies that "Passing Content" is visible.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps an element with the text "Custom Components".
     text: "Custom Components"
-    index: 0
-- assertVisible: "Custom Components"
+- assertVisible: "Custom Components" # Verifies that "Custom Components" is visible.
 
-- tapOn:
+- tapOn: # Taps the menu point again.
     point: "7%,6%"
-- tapOn:
+- tapOn: # Taps the second instance of an element with the text "Styling".
     text: "Styling"
     index: 1
-- assertVisible: "Styling"
+- assertVisible: "Styling" # Verifies that "Styling" is visible.
 
-- runFlow:
-    when:
-      visible: "Styling"
-    file: "./card.yaml"
+- tapOn: # Taps the menu point again.
+    point: "7%,6%"
 
+- scrollUntilVisible: # Scrolls until a specified element is visible.
+    element:
+      text: "Icon"
+    direction: "UP" # The direction of the scroll.
+
+- tapOn: # Taps a specific point on the screen.
+    point: "86%,46%" # Coordinates are 86% from the left and 46% from the top.
